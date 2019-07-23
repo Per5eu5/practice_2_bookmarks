@@ -7,4 +7,5 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('register/', views.register, name='register'),
     path('edit/', views.edit, name='edit'),
+    path('social_auth/', include('social_django.urls', namespace='social')),
 ]
