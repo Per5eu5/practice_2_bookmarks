@@ -39,7 +39,8 @@ def image_like(request):
     action = request.POST.get('action')
     if image_id and action:
         try:
-            image = Image.objects.get(image_id)
+            image = Image.objects.get(id=image_id)
+            print(int(image_id))
             if action == 'like':
                 image.users_like.add(request.user)
             else:
@@ -47,7 +48,7 @@ def image_like(request):
             return JsonResponse({'status': 'ok'})
         except:
             pass
-    return JsonResponse({'status': 'ok'})
+    return JsonResponse({'status': 'ko'})
 
 
 @login_required
